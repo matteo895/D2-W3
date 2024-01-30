@@ -69,7 +69,7 @@
     </div>
 
     <div id="tableArea"></div>
-
+    <p>io non devo essere cambiato!</p>
     <footer>
       <h3>
         DOM Manipulation is super
@@ -85,29 +85,43 @@
       */
 
       const changeTitle = function cambiaTitolo(nuovoTitolo) {
-        document.title = nuovoTitolo;
-        console.log("il titolo è stato cambiato " + nuovoTitolo);
+        const title = document.getElementsByTagName("title")[0];
+        title.innertext = "questo è il nuovo titolo della pagina";
       };
-      changeTitle("ce là farò");
+      console.log(changeTitle);
 
       /* ESERCIZIO 2
          Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
       */
 
-      const addClassToTitle = function () {};
-
+      const addClassToTitle = function () {
+        const h1 = document.querySelector("h1");
+        h1.className = "myHeading";
+      };
+      addClassToTitle();
       /* ESERCIZIO 3
          Scrivi una funzione che cambi il testo dei p figli di un div
         */
 
-      const changePcontent = function () {};
+      const changePcontent = function () {
+        const ps = document.querySelector("div p");
+        for (let i = 0; i < ps.length; i++) {
+          const p = ps[i];
+          p.innertext = "addio";
+        }
+      };
+      changePcontent();
 
       /* ESERCIZIO 4
          Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
         */
 
-      const changeUrls = function () {};
-
+      const changeUrls = function () {
+        const primaDifferents = document.querySelector(".google-link");
+        console.log(primaDifferents);
+        primaDifferents.href = "https://www.google.com";
+      };
+      changeUrls();
       /* ESERCIZIO 5
          Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
       */
